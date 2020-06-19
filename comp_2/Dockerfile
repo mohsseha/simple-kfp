@@ -6,7 +6,7 @@ ARG comp_name
 WORKDIR /workdir
 RUN mkdir /workdir/$comp_name
 COPY requirements.txt .
-COPY __init__.py $comp_name/
+COPY *.py $comp_name/
 
 RUN apt-get update
 RUN apt-get install -y python3-pip
