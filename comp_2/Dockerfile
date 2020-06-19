@@ -8,8 +8,9 @@ WORKDIR /workdir/$comp_name
 COPY requirements.txt .
 COPY __init__.py $comp_name
 
-
-RUN pip install -r requirements.txt --no-cache-dir
+RUN apt-get update
+RUN apt-get install -y python3-pip
+RUN pip3 install -r requirements.txt --no-cache-dir
 
 ENTRYPOINT ["python3"]
 

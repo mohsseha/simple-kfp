@@ -8,7 +8,7 @@ COPY requirements.txt .
 COPY __init__.py $comp_name
 
 
-RUN pip install -r requirements.txt --no-cache-dir
+RUN pip3 install -r requirements.txt --no-cache-dir
 
 ENTRYPOINT ["python3"]
 
