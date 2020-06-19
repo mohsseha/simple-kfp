@@ -17,8 +17,8 @@ import comp_1 as comp_1
 import comp_2 as comp_2
 
 #might as well keep components a common variable in case you want to write multiple pipelines
-comp_1_op=comp.func_to_container_op(comp_1.run,base_image=f"comp_1:{sha}")
-comp_2_op=comp.func_to_container_op(comp_2.run,base_image=f"comp_2:{sha}")    
+comp_1_op=comp.func_to_container_op(comp_1.run,base_image=f"docker.io/mohsseha/comp_1:{sha}")
+comp_2_op=comp.func_to_container_op(comp_2.run,base_image=f"docker.io/mohsseha/comp_2:{sha}")    
 
 
 import kfp.dsl as dsl
