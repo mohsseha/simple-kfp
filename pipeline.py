@@ -37,7 +37,7 @@ def experiment_pipeline(
     #Passing a task output reference as operation arguments
     #For an operation with a single return value, the output reference can be accessed using `task.output` or `task.outputs['output_name']` syntax
     comp_2_task = comp_2_op(comp_1_task.outputs['result'], username)
-    print(f"not sure if this will be logged anywhere but if it is {comp_2_task.output}"")
+    print(f"not sure if this will be logged anywhere but if it is {comp_2_task.output}")
 
 
 
@@ -50,5 +50,10 @@ args = {
    "username": 'random_username'
 }
 now=datetime.datetime.now().strftime("%Y-%m-%d%H:%M:%S")
-#Submit a pipeline run
+
+# compiling is optional; you really should not be doing it regularly 
+kfp.compiler.Compiler().compile(experiment_pipeline,"experiment_pipeline.yaml")
+
+#Submit a pipeline run 
 kfp.Client().create_run_from_pipeline_func(experiment_pipeline, arguments=args,run_name=now,experiment_name="simple_Poc")
+
