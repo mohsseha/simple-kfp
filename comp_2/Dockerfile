@@ -9,9 +9,9 @@ RUN apt-get install -y python3-pip
 WORKDIR /workdir
 RUN mkdir /workdir/$comp_name
 COPY requirements.txt .
-COPY *.py $comp_name/
 RUN pip3 install -r requirements.txt --no-cache-dir
 
+COPY *.py $comp_name/
 CMD [ "python3" ]
 
 
