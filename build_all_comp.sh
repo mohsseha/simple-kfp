@@ -11,8 +11,8 @@ do
     export docker_name=$docker_user/$comp_name:$GIT_SHA
     echo building $docker_name
     cd $comp_name
-    echo docker build -t $docker_name --build-arg comp_name=$comp_name  . &&
-    echo docker push docker.io/$docker_name
+    docker build -t $docker_name --build-arg comp_name=$comp_name  . &&
+    docker push docker.io/$docker_name
     cd $CWD
 done
 
